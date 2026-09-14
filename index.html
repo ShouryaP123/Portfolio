@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shourya Patel — Aerospace Engineering Portfolio</title>
+<meta name="description" content="Aerospace engineering portfolio of Shourya Patel: a scratch-built VTOL aircraft, a Formula SAE front wing CFD study, and a front wing mount load path study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f1e3d;
+  --ink:#1a1f2b;
+  --slate:#5b6472;
+  --line:#e4e6ea;
+  --paper:#fbfbfa;
+  --panel:#f4f5f7;
+  --accent:#2f6db5;
+  --maxw:1180px;
+  --col:680px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"cv05","ss01";
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,251,250,.9);
+  backdrop-filter:saturate(160%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;
+}
+.nav-name{font-weight:700;letter-spacing:-.01em;color:var(--ink);font-size:15px}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav-links a{color:var(--slate)}
+.nav-links a:hover{color:var(--ink);text-decoration:none}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ---------- HERO ---------- */
+header.hero{
+  background:var(--navy);color:#fff;
+  padding:88px 32px 72px;
+}
+.hero-inner{max-width:var(--maxw);margin:0 auto}
+.hero-rule{width:52px;height:3px;background:var(--accent);margin-bottom:30px}
+.hero h1{
+  font-size:clamp(40px,7vw,72px);
+  font-weight:800;letter-spacing:-.035em;line-height:1;
+  margin-bottom:18px;
+}
+.hero .sub{
+  font-size:clamp(16px,2.2vw,20px);font-weight:400;
+  color:#aeb9cf;max-width:640px;
+}
+
+/* ---------- INTRO / SKILLS ---------- */
+.intro{
+  max-width:var(--maxw);margin:0 auto;
+  padding:64px 32px;
+  display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:start;
+}
+.intro-photo img{border-radius:6px;width:200px;height:auto;filter:grayscale(.15)}
+.intro-body p{max-width:var(--col);margin-bottom:16px;font-size:16.5px;color:#33384a}
+.contact{
+  display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;
+  font-size:15px;
+}
+.contact span{color:var(--slate);font-weight:600;margin-right:8px}
+.skills{
+  border-top:1px solid var(--line);margin-top:36px;padding-top:28px;
+  max-width:var(--col);
+}
+.skills-head{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--slate);margin-bottom:18px}
+.skill-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:7px 0;font-size:15px}
+.skill-row .k{font-weight:600;color:var(--ink)}
+.skill-row .v{color:#41485a}
+@media(max-width:720px){
+  .intro{grid-template-columns:1fr;gap:32px;padding:48px 24px}
+  .intro-photo img{width:140px}
+  .skill-row{grid-template-columns:1fr;gap:2px;padding:10px 0}
+}
+
+/* ---------- PROJECT SECTIONS ---------- */
+.project{border-top:1px solid var(--line)}
+.project-head{
+  background:var(--navy);color:#fff;
+}
+.project-head-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12.5px;font-weight:600;letter-spacing:.14em;
+}
+.project-head-inner .tag{color:#8ea3c9}
+.project-body{max-width:var(--maxw);margin:0 auto;padding:52px 32px 72px}
+.project-title{
+  font-size:clamp(30px,4.5vw,44px);font-weight:800;
+  letter-spacing:-.03em;line-height:1.02;margin-bottom:10px;color:var(--navy);
+}
+.project-desc{font-size:17px;color:var(--slate);margin-bottom:8px;max-width:var(--col)}
+.project-body p{max-width:var(--col);margin:16px 0;font-size:16.5px;color:#2f3545}
+
+.subsec{
+  font-size:22px;font-weight:700;color:var(--navy);
+  letter-spacing:-.02em;margin:48px 0 4px;
+}
+.subsec-note{font-size:14.5px;color:var(--slate);margin-bottom:8px}
+.subsub{font-size:16.5px;font-weight:700;color:var(--ink);margin:28px 0 4px}
+
+/* ---------- METRIC STRIP ---------- */
+.metrics{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  margin:34px 0;background:var(--panel);
+}
+.metrics.four{grid-template-columns:repeat(5,1fr)}
+.metric{padding:26px 20px;border-right:1px solid var(--line);text-align:center}
+.metric:last-child{border-right:none}
+.metric .val{
+  font-size:30px;font-weight:700;color:var(--navy);
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;
+}
+.metric .lab{
+  font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  color:var(--slate);margin-top:12px;line-height:1.4;text-transform:uppercase;
+}
+@media(max-width:820px){
+  .metrics,.metrics.four{grid-template-columns:repeat(2,1fr)}
+  .metric{border-bottom:1px solid var(--line)}
+  .metric:nth-child(2n){border-right:none}
+}
+
+/* ---------- FIGURES ---------- */
+figure{margin:34px 0}
+figure img{
+  border:1px solid var(--line);border-radius:8px;
+  width:100%;background:#fff;
+}
+figure.wide{max-width:none}
+figcaption{
+  font-size:13.5px;color:var(--slate);line-height:1.5;
+  border-left:3px solid var(--line);padding-left:14px;margin-top:14px;max-width:820px;
+}
+figure.portrait img{max-width:560px;margin:0 auto}
+
+/* ---------- CALLOUT ---------- */
+.callout{
+  background:#eef3fa;border-left:3px solid var(--accent);
+  padding:20px 24px;border-radius:0 8px 8px 0;margin:32px 0;max-width:var(--col);
+}
+.callout .ctitle{font-weight:700;color:var(--navy);margin-bottom:4px}
+.callout p{margin:0;font-size:15.5px;color:#33384a;max-width:none}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--navy);color:#aeb9cf;
+  padding:56px 32px;margin-top:24px;
+}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+.footer-inner .fname{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.01em}
+.footer-links{display:flex;gap:26px;font-size:15px}
+.footer-links a{color:#aeb9cf}
+.footer-links a:hover{color:#fff;text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Shourya Patel</span>
+    <div class="nav-links">
+      <a href="#vtol">VTOL Aircraft</a>
+      <a href="#cfd">Front Wing CFD</a>
+      <a href="#mount">Wing Mount</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-rule"></div>
+    <h1>Shourya Patel</h1>
+    <p class="sub">Aerospace Engineering &amp; Morrill Scholar, The Ohio State University</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="intro-photo">
+    <img src="images/headshot.jpg" alt="Shourya Patel">
+  </div>
+  <div class="intro-body">
+    <p>I'm a second-year aerospace engineering student and Morrill Scholar at Ohio State. Most of what I know comes from building things end to end: sizing them on paper first, printing and wiring them myself, and then finding out what I got wrong when they fly.</p>
+    <p>The three projects here are a VTOL aircraft I designed and built from scratch, a CFD study on a Formula SAE front wing, and a structural load path study on the mount that holds a front wing to the car.</p>
+    <p>Outside of these, I do undergraduate research on spacecraft intent estimation, and I'm on the propulsion team at BExA, where we're going after the world record for the fastest RC plane.</p>
+
+    <div class="contact">
+      <div><span>Email</span><a href="mailto:heyshourya@gmail.com">heyshourya@gmail.com</a></div>
+      <div><span>LinkedIn</span><a href="https://linkedin.com/in/shourya-patel">linkedin.com/in/shourya-patel</a></div>
+    </div>
+
+    <div class="skills">
+      <div class="skills-head">TECHNICAL SKILLS</div>
+      <div class="skill-row"><div class="k">Languages</div><div class="v">Python, C++, MATLAB</div></div>
+      <div class="skill-row"><div class="k">CAD</div><div class="v">SolidWorks, Onshape, Fusion 360</div></div>
+      <div class="skill-row"><div class="k">Simulation &amp; Analysis</div><div class="v">STAR-CCM+ (CFD), Ansys (FEA), XFLR5, eCalc</div></div>
+      <div class="skill-row"><div class="k">Fabrication</div><div class="v">Carbon-fiber layup, FDM 3D printing (LW-PLA / PETG), avionics integration &amp; soldering, CNC machining support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECT 01 : VTOL ===================== -->
+<section class="project" id="vtol">
+  <div class="project-head"><div class="project-head-inner"><span>PROJECT 01 OF 03</span><span class="tag">VTOL_RECON_V1</span></div></div>
+  <div class="project-body">
+    <h2 class="project-title">VTOL_RECON_V1</h2>
+    <p class="project-desc">A scratch-built VTOL aircraft. Personal project, sole engineer.</p>
+
+    <p>I wanted an aircraft that could take off vertically like a quadcopter but still cruise efficiently like a plane, so I designed and built a quadplane: four lift rotors on carbon booms for hover, and a pusher motor with a 1550&nbsp;mm wing for forward flight. I did all of it myself, working in order from the aero and stability sizing in XFLR5 and the propulsion sizing in eCalc, through a Python model for the spar, and then the CAD, the 3D printing, and the wiring.</p>
+    <p>I sized the airframe to an 1781&nbsp;g target and it came out at 1849&nbsp;g on the scale once it was actually built, about 3.8% heavier. The extra weight came from print tolerances, adhesive, and hardware I hadn't accounted for in the model. That gap is small enough that I trust my component mass build up, and it's the first number I check on the next build.</p>
+
+    <div class="metrics">
+      <div class="metric"><div class="val">1550 mm</div><div class="lab">Wingspan</div></div>
+      <div class="metric"><div class="val">1849 g</div><div class="lab">Measured all-up</div></div>
+      <div class="metric"><div class="val">3.8&times;</div><div class="lab">Spar safety factor</div></div>
+      <div class="metric"><div class="val">0.52</div><div class="lab">Tail volume</div></div>
+      <div class="metric"><div class="val">2.4:1</div><div class="lab">Hover thrust / weight</div></div>
+    </div>
+
+    <figure>
+      <img src="images/vtol-finished.jpg" alt="Finished VTOL aircraft on grass">
+      <figcaption>The finished aircraft. Four lift motors sit on carbon booms ahead of and behind the wing, and the pusher is at the tail end of the fuselage.</figcaption>
+    </figure>
+
+    <h3 class="subsec">Aerodynamics and Stability</h3>
+    <div class="subsec-note">XFLR5, vortex lattice and lifting line</div>
+    <p>This was the first thing I did, before any CAD or printing, because the geometry decisions here are the ones that are expensive to undo later. I built the aircraft in XFLR5 to check that it would actually be stable. The thing I cared about most was the tail. Too small and the plane is twitchy or divergent in pitch, too big and I'm carrying drag and weight I don't need. I ended up with a 698&nbsp;mm tail position and a 680.5&nbsp;mm elevator lever arm, which gives a tail volume coefficient of 0.52 against the 0.29&nbsp;m² wing.</p>
+    <figure>
+      <img src="images/xflr5-editor.png" alt="Aircraft geometry defined in XFLR5">
+      <figcaption>The aircraft defined in XFLR5. Wing area is 0.29&nbsp;m² over a 1550&nbsp;mm span, and the elevator sits on a 680.5&nbsp;mm arm, giving the 0.52 tail volume.</figcaption>
+    </figure>
+    <p>I then ran a fixed lift sweep from −2° to 14°. The pitching moment slope comes out negative, which is what I was looking for. If the nose pitches up, the aircraft generates a moment that pushes it back down instead of running away. Lift to drag peaks around 4 to 5 degrees, so that is the angle I aimed to trim for in cruise.</p>
+    <figure>
+      <img src="images/xflr5-polars.png" alt="XFLR5 polar plots">
+      <figcaption>Polars at 1781&nbsp;g with the CG at 48&nbsp;mm. Clockwise from top left: drag polar, lift curve, lift to drag against angle of attack, and the pitching moment slope. The two traces compare the original tail against the resized one.</figcaption>
+    </figure>
+    <p>The lift curve is straight across the whole sweep, but that is a property of the method rather than a finding. A vortex lattice solution is inviscid, so it keeps producing linear lift well past the angle where a real wing would stall. What I took from this analysis was the lift curve slope, the trim point, and the moment behavior, not a stall angle. I also ran it at the 1781&nbsp;g design weight, so the as-built aircraft is slightly heavier than what's plotted here, which puts the real trim speed a little above what the model says.</p>
+
+    <h3 class="subsec">Propulsion Sizing</h3>
+    <div class="subsec-note">eCalc, hover case</div>
+    <p>A quadplane has to be sized twice, because hover and cruise ask for completely different things. In hover the four rotors carry the entire weight of the aircraft, so I needed thrust well above 1:1 to have any control authority left over. In cruise the wing carries the weight and the pusher only has to overcome drag, so thrust below 1:1 is fine and expected. Sizing both to the same target would have meant carrying a much heavier propulsion system than the aircraft needs.</p>
+    <div class="subsub">Hover: four EMAX 2807 motors on 8×4 props</div>
+    <figure>
+      <img src="images/ecalc-hover.png" alt="eCalc hover analysis gauges">
+      <figcaption>2.4:1 thrust to weight with about 8.5 minutes of hover endurance, drawing 323&nbsp;W across the four rotors. The margin above 1:1 is what the flight controller uses to hold attitude and handle the transition into forward flight, and it is the number I would not go below on a vehicle that has to land itself.</figcaption>
+    </figure>
+    <p>The four lift motors do nothing once the aircraft is in cruise, so every gram of that system is dead weight in forward flight. That tension, enough hover authority without over building the lift system, drove most of the motor and prop selection.</p>
+
+    <h3 class="subsec">Cruise and the Thermal Limit</h3>
+    <div class="subsec-note">eCalc, forward flight case</div>
+    <div class="subsub">Cruise: one BrotherHobby 2812 pusher on a 10×5</div>
+    <figure>
+      <img src="images/ecalc-cruise.png" alt="eCalc cruise analysis gauges">
+      <figcaption>0.90:1 thrust to weight and 11.4 minutes of mixed flight. Thrust below 1:1 is the expected result, since the wing carries the aircraft and the motor only has to beat drag.</figcaption>
+    </figure>
+    <p>The rest of the output gives a 36&nbsp;km/h stall speed, 101&nbsp;km/h level speed, 7.2&nbsp;m/s climb, and 1607&nbsp;g of static thrust against the 1781&nbsp;g design weight. The number I paid the most attention to, though, was the one printed in red.</p>
+    <figure>
+      <img src="images/ecalc-motor-max.png" alt="eCalc motor at maximum table">
+      <figcaption>The pusher motor at maximum: 26.84&nbsp;A drawing 384&nbsp;W, with a predicted case temperature of 92°C. eCalc flags anything above 80°C as an overheat risk.</figcaption>
+    </figure>
+    <div class="callout">
+      <div class="ctitle">Known limitation</div>
+      <p>The red line at the top of that output is eCalc predicting a 92°C motor case temperature at maximum, past where I'd want a motor sitting for a long time. For the short reconnaissance flights I designed this around, running the pusher near full power only in climb, I accepted it. It's the clearest limitation in the current setup, and if I fly longer missions the fix is either a lower Kv motor on a bigger prop, or actual airflow over the motor can.</p>
+    </div>
+
+    <h3 class="subsec">Building It</h3>
+    <div class="subsec-note">CAD, FDM printing, and avionics integration</div>
+    <p>With the aero and propulsion settled, I moved into CAD and started printing. The airframe is printed in sections and joined over carbon tubes. The wing splits into halves that slide onto a spar running through both, and the booms carrying the lift motors are separate tubes clamped to printed mounts. Printing in sections meant I could fit parts on the bed and reprint one piece after a crash instead of the whole wing, which mattered more than I expected once I started flying it.</p>
+    <figure>
+      <img src="images/vtol-parts.jpg" alt="All aircraft parts laid out before assembly">
+      <figcaption>Everything before assembly: printed wing halves and fuselage sections, carbon spar and boom tubes, motors, ESCs, the 4S 4000&nbsp;mAh pack, flight controller, and the harness I soldered.</figcaption>
+    </figure>
+    <p>I did the wiring myself, running power from the pack through the ESCs out to five motors, and I checked continuity and voltage with a multimeter before ever putting a prop on. The extra 68&nbsp;g over my design estimate came out of exactly this stage: adhesive at the joints, connectors, and printed parts that came off the bed a little heavier than the model said.</p>
+  </div>
+</section>
+
+<!-- ===================== PROJECT 02 : CFD ===================== -->
+<section class="project" id="cfd">
+  <div class="project-head"><div class="project-head-inner"><span>PROJECT 02 OF 03</span><span class="tag">FRONT WING AIRFOIL</span></div></div>
+  <div class="project-body">
+    <h2 class="project-title">Front Wing Airfoil Optimization</h2>
+    <p class="project-desc">Formula Buckeyes. 2D CFD in STAR-CCM+.</p>
+
+    <p>I started from the NASA Apex 16 (CR-20106), an airfoil built for high lift in ground effect, and ran it in STAR-CCM+ to see how much more I could get out of it. The goal was the highest lift to drag ratio I could reach at a fixed operating condition, with a ground plane in the domain so that ground effect was part of the problem rather than a free air result.</p>
+    <p>The baseline gave a lift to drag around 81 at zero incidence. Sweeping angle of attack, the section did best at −4°, which brought it to roughly 108. From there I thinned the section: 10% thinner got me to about 115, and 15% thinner, the configuration I settled on, came out at 115.7, which the solver reports from an average lift coefficient of 1.2544 against an average drag coefficient of 0.010841. Thinning cuts the pressure drag from the thick forward shape faster than it gives up lift at this operating point, which is why the ratio keeps climbing.</p>
+
+    <div class="metrics">
+      <div class="metric"><div class="val">81</div><div class="lab">Baseline L/D</div></div>
+      <div class="metric"><div class="val">115.7</div><div class="lab">Final L/D</div></div>
+      <div class="metric"><div class="val">+43%</div><div class="lab">Improvement</div></div>
+      <div class="metric"><div class="val">−4°</div><div class="lab">Angle of attack</div></div>
+      <div class="metric"><div class="val">15%</div><div class="lab">Thinner section</div></div>
+    </div>
+
+    <figure>
+      <img src="images/cfd-velocity.png" alt="Velocity magnitude contour around the final airfoil">
+      <figcaption>Velocity magnitude around the final section. The flow accelerates hard over the suction surface. The blue region near the leading edge on the pressure side is low velocity flow, consistent with a small separation bubble.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/cfd-tabular.png" alt="Force coefficient table for the final configuration">
+      <figcaption>Force coefficients for the final configuration, straight from the solver. The reported L/D of 115.7 is taken from the averaged lift and drag, which is why it differs slightly from the ratio of the instantaneous values listed alongside them.</figcaption>
+    </figure>
+    <p>I also tested the Selig S1223, a well known high lift section, but it came out around 66 in this configuration so I dropped it rather than keep tuning something the data didn't support.</p>
+
+    <h3 class="subsec">What the Residuals Show</h3>
+    <div class="subsec-note">Solver convergence and the limits of this study</div>
+    <p>I want to be straight about how far I'd push these numbers. The residuals drop several orders of magnitude and then settle into a steady oscillation instead of flattening out. Running a steady solver on a flow that is not actually steady gives exactly this signature: the solution reaches a repeating unsteadiness rather than a converged state. Given the low velocity region sitting near the leading edge on the pressure side, some unsteady separation there is the likely source.</p>
+    <figure>
+      <img src="images/cfd-residuals.png" alt="Residual history over 2000 iterations">
+      <figcaption>Residuals over 2000 iterations: continuity, x and y momentum, turbulent kinetic energy and specific dissipation rate, plus the intermittency and transition momentum thickness Reynolds number from the transition model. The oscillation is consistent across all of them and does not grow, so the run is stable, but it is not a flat convergence.</figcaption>
+    </figure>
+    <p>Because of that, and because I didn't run a formal mesh independence study, I treat 115.7 as a solid comparison between configurations that were all run identically, rather than an absolute number I would hand to someone building the part. The trend across the sweep is what I trust: thinner sections did better, and −4° beat every other angle I tried.</p>
+    <p>This is also a two dimensional sectional analysis, so it says nothing about tip vortices or the three dimensional flow a real finite wing would see. Extending it to 3D and running a mesh study are the two things I would do next.</p>
+  </div>
+</section>
+
+<!-- ===================== PROJECT 03 : MOUNT ===================== -->
+<section class="project" id="mount">
+  <div class="project-head"><div class="project-head-inner"><span>PROJECT 03 OF 03</span><span class="tag">FRONT WING MOUNT</span></div></div>
+  <div class="project-body">
+    <h2 class="project-title">Front Wing Mount Load Path Study</h2>
+    <p class="project-desc">Formula Buckeyes. CAD and topology optimization in Ansys 2024 R2.</p>
+
+    <p>The front wing on our Formula car bolts to the chassis through a swan neck bracket, and that bracket is a common failure point. The aero load does not act at the bolts. It acts out at the wing, offset from the plane the bolts sit in, so the bracket has to carry both the force itself and the moment that offset creates. The direct force is reacted in shear and bearing at the holes, while the moment shows up as a tension and compression couple across the bolt pattern: under downforce the bolts on one side of the pattern get pulled while the opposite side is pushed into the chassis.</p>
+    <p>To get the bolt positions right I worked from a single known anchor point on the geometry and used relative distances to place every other hole in the car's coordinate frame, rather than measuring each one independently. Moment arms are the lever lengths in that calculation, so an error in the reference point would propagate into every moment I computed.</p>
+
+    <h3 class="subsec">First design</h3>
+    <figure>
+      <img src="images/bracket-first.png" alt="First bracket design in Ansys with bolt pattern">
+      <figcaption>The first bracket I modeled, with its bolt pattern. The scale bar runs to 0.1&nbsp;m, and the holes cluster toward the chassis end on the right, where the moment couple has to be reacted.</figcaption>
+    </figure>
+    <p>I ran a topology optimization on this design to see how much of it was actually carrying load. The result came back with material dropping out over a large share of the plate, which told me the bracket was heavier than the load case required. That costs twice on a Formula car: it is mass hung off the front of the chassis doing nothing for stiffness, and it is material and machining time we pay for on a part that did not need to be that size.</p>
+
+    <h3 class="subsec">Second Design and Reoptimization</h3>
+    <div class="subsec-note">Topology optimization on the revised bracket</div>
+    <p>Knowing where the load actually went, I drew a second bracket, cutting the profile back in the regions the first optimization had emptied out while keeping section depth around the bolt clusters. Then I reran the optimization on that new geometry to check the revision against the same load case. The figure below is that second run, which is why its outline does not match the CAD on the previous design.</p>
+    <figure>
+      <img src="images/bracket-topo.png" alt="Topology optimization result on the second bracket design">
+      <figcaption>Topology optimization on the second design. Red is material the solver wants to keep. It collects into a truss like path along the upper and lower edges with bracing between the bolt clusters, and the pale regions in between carry almost nothing.</figcaption>
+    </figure>
+    <p>What the solver keeps is a truss, and that is the shape the load case predicts. A moment across the bolt pattern is reacted by a tension and compression pair separated by as much depth as the part allows, so material belongs at the extreme upper and lower edges, with bracing to tie them together and feed load into the chassis. The middle of a section in bending sits near zero stress, which is why it hollows out. Getting a result that agrees with the hand analysis is the check that the model and load case were set up correctly.</p>
+    <p>A topology optimization returns a density field, not a part. I used these two runs to find the load path and to size the revision, and I stopped there. Turning the result into something that can be made means smoothing the field into clean CAD and running a static stress check on that final geometry against the real load case, which is the next step if the design gets carried forward.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="fname">Shourya Patel</div>
+    <div class="footer-links">
+      <a href="mailto:heyshourya@gmail.com">heyshourya@gmail.com</a>
+      <a href="https://linkedin.com/in/shourya-patel">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
