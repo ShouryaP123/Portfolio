@@ -205,7 +205,7 @@ footer{
 
 <section class="intro">
   <div class="intro-photo">
-    <img src="images/headshot.jpg" alt="Shourya Patel">
+    <img src="headshot.jpg" alt="Shourya Patel">
   </div>
   <div class="intro-body">
     <p>I'm a second-year aerospace engineering student and Morrill Scholar at Ohio State. Most of what I know comes from building things end to end: sizing them on paper first, printing and wiring them myself, and then finding out what I got wrong when they fly.</p>
@@ -246,7 +246,7 @@ footer{
     </div>
 
     <figure>
-      <img src="images/vtol-finished.jpg" alt="Finished VTOL aircraft on grass">
+      <img src="vtol-finished.jpg" alt="Finished VTOL aircraft on grass">
       <figcaption>The finished aircraft. Four lift motors sit on carbon booms ahead of and behind the wing, and the pusher is at the tail end of the fuselage.</figcaption>
     </figure>
 
@@ -254,12 +254,12 @@ footer{
     <div class="subsec-note">XFLR5, vortex lattice and lifting line</div>
     <p>This was the first thing I did, before any CAD or printing, because the geometry decisions here are the ones that are expensive to undo later. I built the aircraft in XFLR5 to check that it would actually be stable. The thing I cared about most was the tail. Too small and the plane is twitchy or divergent in pitch, too big and I'm carrying drag and weight I don't need. I ended up with a 698&nbsp;mm tail position and a 680.5&nbsp;mm elevator lever arm, which gives a tail volume coefficient of 0.52 against the 0.29&nbsp;m² wing.</p>
     <figure>
-      <img src="images/xflr5-editor.png" alt="Aircraft geometry defined in XFLR5">
+      <img src="xflr5-editor.png" alt="Aircraft geometry defined in XFLR5">
       <figcaption>The aircraft defined in XFLR5. Wing area is 0.29&nbsp;m² over a 1550&nbsp;mm span, and the elevator sits on a 680.5&nbsp;mm arm, giving the 0.52 tail volume.</figcaption>
     </figure>
     <p>I then ran a fixed lift sweep from −2° to 14°. The pitching moment slope comes out negative, which is what I was looking for. If the nose pitches up, the aircraft generates a moment that pushes it back down instead of running away. Lift to drag peaks around 4 to 5 degrees, so that is the angle I aimed to trim for in cruise.</p>
     <figure>
-      <img src="images/xflr5-polars.png" alt="XFLR5 polar plots">
+      <img src="xflr5-polars.png" alt="XFLR5 polar plots">
       <figcaption>Polars at 1781&nbsp;g with the CG at 48&nbsp;mm. Clockwise from top left: drag polar, lift curve, lift to drag against angle of attack, and the pitching moment slope. The two traces compare the original tail against the resized one.</figcaption>
     </figure>
     <p>The lift curve is straight across the whole sweep, but that is a property of the method rather than a finding. A vortex lattice solution is inviscid, so it keeps producing linear lift well past the angle where a real wing would stall. What I took from this analysis was the lift curve slope, the trim point, and the moment behavior, not a stall angle. I also ran it at the 1781&nbsp;g design weight, so the as-built aircraft is slightly heavier than what's plotted here, which puts the real trim speed a little above what the model says.</p>
@@ -269,7 +269,7 @@ footer{
     <p>A quadplane has to be sized twice, because hover and cruise ask for completely different things. In hover the four rotors carry the entire weight of the aircraft, so I needed thrust well above 1:1 to have any control authority left over. In cruise the wing carries the weight and the pusher only has to overcome drag, so thrust below 1:1 is fine and expected. Sizing both to the same target would have meant carrying a much heavier propulsion system than the aircraft needs.</p>
     <div class="subsub">Hover: four EMAX 2807 motors on 8×4 props</div>
     <figure>
-      <img src="images/ecalc-hover.png" alt="eCalc hover analysis gauges">
+      <img src="ecalc-hover.png" alt="eCalc hover analysis gauges">
       <figcaption>2.4:1 thrust to weight with about 8.5 minutes of hover endurance, drawing 323&nbsp;W across the four rotors. The margin above 1:1 is what the flight controller uses to hold attitude and handle the transition into forward flight, and it is the number I would not go below on a vehicle that has to land itself.</figcaption>
     </figure>
     <p>The four lift motors do nothing once the aircraft is in cruise, so every gram of that system is dead weight in forward flight. That tension, enough hover authority without over building the lift system, drove most of the motor and prop selection.</p>
@@ -278,12 +278,12 @@ footer{
     <div class="subsec-note">eCalc, forward flight case</div>
     <div class="subsub">Cruise: one BrotherHobby 2812 pusher on a 10×5</div>
     <figure>
-      <img src="images/ecalc-cruise.png" alt="eCalc cruise analysis gauges">
+      <img src="ecalc-cruise.png" alt="eCalc cruise analysis gauges">
       <figcaption>0.90:1 thrust to weight and 11.4 minutes of mixed flight. Thrust below 1:1 is the expected result, since the wing carries the aircraft and the motor only has to beat drag.</figcaption>
     </figure>
     <p>The rest of the output gives a 36&nbsp;km/h stall speed, 101&nbsp;km/h level speed, 7.2&nbsp;m/s climb, and 1607&nbsp;g of static thrust against the 1781&nbsp;g design weight. The number I paid the most attention to, though, was the one printed in red.</p>
     <figure>
-      <img src="images/ecalc-motor-max.png" alt="eCalc motor at maximum table">
+      <img src="ecalc-motor-max.png" alt="eCalc motor at maximum table">
       <figcaption>The pusher motor at maximum: 26.84&nbsp;A drawing 384&nbsp;W, with a predicted case temperature of 92°C. eCalc flags anything above 80°C as an overheat risk.</figcaption>
     </figure>
     <div class="callout">
@@ -295,7 +295,7 @@ footer{
     <div class="subsec-note">CAD, FDM printing, and avionics integration</div>
     <p>With the aero and propulsion settled, I moved into CAD and started printing. The airframe is printed in sections and joined over carbon tubes. The wing splits into halves that slide onto a spar running through both, and the booms carrying the lift motors are separate tubes clamped to printed mounts. Printing in sections meant I could fit parts on the bed and reprint one piece after a crash instead of the whole wing, which mattered more than I expected once I started flying it.</p>
     <figure>
-      <img src="images/vtol-parts.jpg" alt="All aircraft parts laid out before assembly">
+      <img src="vtol-parts.jpg" alt="All aircraft parts laid out before assembly">
       <figcaption>Everything before assembly: printed wing halves and fuselage sections, carbon spar and boom tubes, motors, ESCs, the 4S 4000&nbsp;mAh pack, flight controller, and the harness I soldered.</figcaption>
     </figure>
     <p>I did the wiring myself, running power from the pack through the ESCs out to five motors, and I checked continuity and voltage with a multimeter before ever putting a prop on. The extra 68&nbsp;g over my design estimate came out of exactly this stage: adhesive at the joints, connectors, and printed parts that came off the bed a little heavier than the model said.</p>
@@ -321,11 +321,11 @@ footer{
     </div>
 
     <figure>
-      <img src="images/cfd-velocity.png" alt="Velocity magnitude contour around the final airfoil">
+      <img src="cfd-velocity.png" alt="Velocity magnitude contour around the final airfoil">
       <figcaption>Velocity magnitude around the final section. The flow accelerates hard over the suction surface. The blue region near the leading edge on the pressure side is low velocity flow, consistent with a small separation bubble.</figcaption>
     </figure>
     <figure>
-      <img src="images/cfd-tabular.png" alt="Force coefficient table for the final configuration">
+      <img src="cfd-tabular.png" alt="Force coefficient table for the final configuration">
       <figcaption>Force coefficients for the final configuration, straight from the solver. The reported L/D of 115.7 is taken from the averaged lift and drag, which is why it differs slightly from the ratio of the instantaneous values listed alongside them.</figcaption>
     </figure>
     <p>I also tested the Selig S1223, a well known high lift section, but it came out around 66 in this configuration so I dropped it rather than keep tuning something the data didn't support.</p>
@@ -334,7 +334,7 @@ footer{
     <div class="subsec-note">Solver convergence and the limits of this study</div>
     <p>I want to be straight about how far I'd push these numbers. The residuals drop several orders of magnitude and then settle into a steady oscillation instead of flattening out. Running a steady solver on a flow that is not actually steady gives exactly this signature: the solution reaches a repeating unsteadiness rather than a converged state. Given the low velocity region sitting near the leading edge on the pressure side, some unsteady separation there is the likely source.</p>
     <figure>
-      <img src="images/cfd-residuals.png" alt="Residual history over 2000 iterations">
+      <img src="cfd-residuals.png" alt="Residual history over 2000 iterations">
       <figcaption>Residuals over 2000 iterations: continuity, x and y momentum, turbulent kinetic energy and specific dissipation rate, plus the intermittency and transition momentum thickness Reynolds number from the transition model. The oscillation is consistent across all of them and does not grow, so the run is stable, but it is not a flat convergence.</figcaption>
     </figure>
     <p>Because of that, and because I didn't run a formal mesh independence study, I treat 115.7 as a solid comparison between configurations that were all run identically, rather than an absolute number I would hand to someone building the part. The trend across the sweep is what I trust: thinner sections did better, and −4° beat every other angle I tried.</p>
@@ -354,7 +354,7 @@ footer{
 
     <h3 class="subsec">First design</h3>
     <figure>
-      <img src="images/bracket-first.png" alt="First bracket design in Ansys with bolt pattern">
+      <img src="bracket-first.png" alt="First bracket design in Ansys with bolt pattern">
       <figcaption>The first bracket I modeled, with its bolt pattern. The scale bar runs to 0.1&nbsp;m, and the holes cluster toward the chassis end on the right, where the moment couple has to be reacted.</figcaption>
     </figure>
     <p>I ran a topology optimization on this design to see how much of it was actually carrying load. The result came back with material dropping out over a large share of the plate, which told me the bracket was heavier than the load case required. That costs twice on a Formula car: it is mass hung off the front of the chassis doing nothing for stiffness, and it is material and machining time we pay for on a part that did not need to be that size.</p>
@@ -363,7 +363,7 @@ footer{
     <div class="subsec-note">Topology optimization on the revised bracket</div>
     <p>Knowing where the load actually went, I drew a second bracket, cutting the profile back in the regions the first optimization had emptied out while keeping section depth around the bolt clusters. Then I reran the optimization on that new geometry to check the revision against the same load case. The figure below is that second run, which is why its outline does not match the CAD on the previous design.</p>
     <figure>
-      <img src="images/bracket-topo.png" alt="Topology optimization result on the second bracket design">
+      <img src="bracket-topo.png" alt="Topology optimization result on the second bracket design">
       <figcaption>Topology optimization on the second design. Red is material the solver wants to keep. It collects into a truss like path along the upper and lower edges with bracing between the bolt clusters, and the pale regions in between carry almost nothing.</figcaption>
     </figure>
     <p>What the solver keeps is a truss, and that is the shape the load case predicts. A moment across the bolt pattern is reacted by a tension and compression pair separated by as much depth as the part allows, so material belongs at the extreme upper and lower edges, with bracing to tie them together and feed load into the chassis. The middle of a section in bending sits near zero stress, which is why it hollows out. Getting a result that agrees with the hand analysis is the check that the model and load case were set up correctly.</p>
